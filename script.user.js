@@ -9,11 +9,13 @@
 // ==/UserScript==
  var URL = window.location.href;
   if (URL.includes("scratch.mit.edu/users/") === true) {
-    var user = URL.substring(30, URL.length - 1);
+   if (URL.includes("scratch.mit.edu/users/griffpatch/") === false {
+   var user = URL.substring(30, URL.length - 1);
     xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", "https://api.scratch.mit.edu/users/" + user + "/messages/count", false);
     xmlHttp.send(null);
     var raw = xmlHttp.responseText;
     var number = raw.substring(9, raw.length - 1)
     document.getElementsByClassName("footer")[0].innerHTML = user + " has " + number + " messages.";
+  }
 }
